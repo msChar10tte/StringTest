@@ -21,18 +21,25 @@ public class PostService {
 
     public Post getById(long id) {
         return repository.getById(id).orElseThrow(
-                () -> new NotFoundException("Post with ID " + id + " not found.")
+                () -> new NotFoundException("Post with ID " + id + " not found or is removed.")
         );
     }
 
     public Post save(Post post) {
+        if (post.getId() != 0) {
+            Post existingPost = repository.getById(post.getId())
+                    .orElseThrow(() -> new NotFoundException("Post with ID " + post.getId() + " not found or is removed for update."));
+            existingPost.setContent(post.getContent());
+            return repository.save(existingPost);
+        }
+
         return repository.save(post);
     }
 
     public void removeById(long id) {
-        if (repository.getById(id).isEmpty()) {
-            throw new NotFoundException("Post with ID " + id + " not found for deletion.");
-        }
+        Post postToRemove = repository.getById(id).orElseThrow(
+                () -> new NotFoundException("Post with ID " + id + " not found or already removed for deletion.")
+        );
         repository.removeById(id);
     }
 }
