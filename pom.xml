@@ -5,8 +5,8 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.5</version> <!-- Проверьте последнюю версию на start.spring.io -->
-        <relativePath/> <!-- lookup parent from repository -->
+        <version>3.2.5</version>
+        <relativePath/>
     </parent>
     <groupId>ru.netology</groupId>
     <artifactId>spring-web-mvc-hw</artifactId>
@@ -17,28 +17,21 @@
         <java.version>17</java.version>
     </properties>
     <dependencies>
-        <!-- Стартер для создания веб-приложений с Spring MVC, REST и встроенным Tomcat -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
-        <!-- Зависимость для обработки JSON (по умолчанию Spring Boot использует Jackson, но GSON тоже можно добавить) -->
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
-            <version>2.10.1</version> <!-- Обновил до более новой версии -->
+            <version>2.10.1</version>
             <scope>compile</scope>
         </dependency>
-        <!-- Зависимость для логирования (Spring Boot по умолчанию использует Logback через starter-web) -->
-        <!-- Можно не добавлять явно, если не нужны специфичные настройки, но если был в исходном, пусть будет -->
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
-            <!-- Версия управляется spring-boot-starter-parent, можно не указывать явно -->
         </dependency>
 
-        <!-- Зависимость для тестирования Spring Boot приложений -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
