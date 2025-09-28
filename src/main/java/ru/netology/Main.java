@@ -2,7 +2,7 @@ package ru.netology;
 
 import org.apache.catalina.Context;
 import org.apache.catalina.LifecycleException;
-import org.apache.catalina.Wrapper; // Добавили импорт Wrapper
+import org.apache.catalina.Wrapper;
 import org.apache.catalina.connector.Connector;
 import org.apache.catalina.startup.Tomcat;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
